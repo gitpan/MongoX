@@ -1,0 +1,19 @@
+---
+abstract: 'DSL sugar for MongoDB'
+author:
+  - 'Pan Fan(nightsailer) <nightsailer at gmail dot com>'
+build_requires:
+  Test::More: 0.9
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.101670'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MongoX
+requires:
+  Carp: 0
+  MongoDB: 0.35
+version: 0.001
