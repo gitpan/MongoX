@@ -3,6 +3,7 @@ abstract: 'DSL sugar for MongoDB'
 author:
   - 'Pan Fan(nightsailer) <nightsailer at gmail dot com>'
 build_requires:
+  Test::Deep: 0.106
   Test::More: 0.9
 configure_requires:
   ExtUtils::MakeMaker: 6.31
@@ -16,4 +17,7 @@ name: MongoX
 requires:
   Carp: 0
   MongoDB: 0.35
-version: 0.001
+  parent: 0
+resources:
+  repository: http://github.com/nightsailer/mongo-x
+version: 0.002

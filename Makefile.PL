@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'DSL sugar for MongoDB',
   'AUTHOR' => 'Pan Fan(nightsailer) <nightsailer at gmail dot com>',
   'BUILD_REQUIRES' => {
+    'Test::Deep' => '0.106',
     'Test::More' => '0.9'
   },
   'CONFIGURE_REQUIRES' => {
@@ -23,9 +24,10 @@ my %WriteMakefileArgs = (
   'NAME' => 'MongoX',
   'PREREQ_PM' => {
     'Carp' => '0',
-    'MongoDB' => '0.35'
+    'MongoDB' => '0.35',
+    'parent' => '0'
   },
-  'VERSION' => '0.001',
+  'VERSION' => '0.002',
   'test' => {
     'TESTS' => 't/*.t'
   }
