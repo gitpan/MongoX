@@ -77,7 +77,7 @@ MongoX - DSL sugar for MongoDB
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -114,7 +114,7 @@ version 0.002
     # loop dbs/collections
     for_dbs{
         for_collections {
-            $context_collection->ensureIndex({ 'created_on' => 1 });
+            db_ensure_index {created_on => 1};
         } context_db->collection_names;
     } 'db1','db2';
 

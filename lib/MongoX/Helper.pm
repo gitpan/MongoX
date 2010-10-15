@@ -56,6 +56,10 @@ my @TAG_COMMON = qw(
     db_find_all
     db_find_and_modify
     db_increment
+    db_ensure_index
+    db_drop_index
+    db_drop_indexes
+    db_get_indexes
 );
 # TODO: Replica Set commands
 my @TAG_RS = qw(
@@ -366,6 +370,30 @@ sub db_find_one {
 }
 
 
+sub db_ensure_index {
+    croak 'context_collection not defined,forget(use_collection?)' unless _collection;
+    return _collection->ensure_index(@_);
+}
+
+
+sub db_drop_index {
+    croak 'context_collection not defined,forget(use_collection?)' unless _collection;
+    return _collection->drop_index(@_);
+}
+
+
+sub db_drop_indexes {
+    croak 'context_collection not defined,forget(use_collection?)' unless _collection;
+    return _collection->drop_indexes(@_);
+}
+
+
+sub db_get_indexes {
+    croak 'context_collection not defined,forget(use_collection?)' unless _collection;
+    return _collection->get_indexes;
+}
+
+
 1;
 
 
@@ -378,7 +406,7 @@ MongoX::Helper - Helper to invoke MongoDB commands handy.
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -721,6 +749,30 @@ Shortcut of L<MongoDB::Collection/remove>.
     $result = db_find_one {_id => 5};
 
 Shortcut of L<MongoDB::Collection/find_one>.
+
+=head2 db_ensure_index(\%keys,\%options?)
+
+    $result = db_ensure_index { foo => 1, name => 1};
+
+Shortcut of L<MongoDB::Collection/ensure_index>.
+
+=head2 db_drop_index($index_name)
+
+    db_drop_index { 'name_1' };
+
+Shortcut of L<MongoDB::Collection/drop_index>.
+
+=head2 db_drop_indexes
+
+    db_drop_indexes;
+
+Shortcut of L<MongoDB::Collection/drop_indexes>.
+
+=head2 db_get_indexes
+
+    db_get_indexes;
+
+Shortcut of L<MongoDB::Collection/get_indexes>.
 
 =head1 SEE ALSO
 

@@ -24,10 +24,10 @@ my %WriteMakefileArgs = (
   'NAME' => 'MongoX',
   'PREREQ_PM' => {
     'Carp' => '0',
-    'MongoDB' => '0.35',
+    'MongoDB' => '0.38',
     'parent' => '0'
   },
-  'VERSION' => '0.002',
+  'VERSION' => '0.003',
   'test' => {
     'TESTS' => 't/*.t'
   }
