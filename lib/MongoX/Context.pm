@@ -79,10 +79,10 @@ sub reset {
     %connection_pool = ();
 }
 
-sub with_context(&@) {
+sub with_context {
     local ($_context_connection,$_context_db,$_context_collection) = ($_context_connection,$_context_db,$_context_collection);
     if (@_ == 1) {
-        return shift->();
+        return $_[0]->();
     }
     my $code = shift;
     my %new_context = @_;
@@ -151,7 +151,7 @@ MongoX::Context - Implements DSL interface,context container.
 
 =head1 VERSION
 
-version 0.004
+version 0.05
 
 =head1 SYNOPSIS
 

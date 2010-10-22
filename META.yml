@@ -20,4 +20,4 @@ requires:
   parent: 0
 resources:
   repository: http://github.com/nightsailer/mongo-x
-version: 0.004
+version: 0.05

@@ -27,7 +27,7 @@ my %WriteMakefileArgs = (
     'MongoDB' => '0.38',
     'parent' => '0'
   },
-  'VERSION' => '0.004',
+  'VERSION' => '0.05',
   'test' => {
     'TESTS' => 't/*.t'
   }

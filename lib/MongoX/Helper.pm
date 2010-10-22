@@ -421,7 +421,7 @@ MongoX::Helper - Helper to invoke MongoDB commands handy.
 
 =head1 VERSION
 
-version 0.004
+version 0.05
 
 =head1 SYNOPSIS
 
