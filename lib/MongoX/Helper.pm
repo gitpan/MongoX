@@ -51,7 +51,7 @@ my @TAG_COMMON = qw(
     db_update
     db_update_set
     db_find_one
-    
+
     db_find
     db_find_all
     db_find_and_modify
@@ -60,6 +60,9 @@ my @TAG_COMMON = qw(
     db_drop_index
     db_drop_indexes
     db_get_indexes
+
+    db_find_by_id
+    db_remove_by_id
 );
 # TODO: Replica Set commands
 my @TAG_RS = qw(
@@ -280,7 +283,7 @@ sub db_find_and_modify {
     }
     unless (ref $result) {
         if ($result eq 'No matching object found') {
-            return {};
+            return;
         }
         croak $result;
     }
@@ -394,6 +397,18 @@ sub db_get_indexes {
 }
 
 
+sub db_find_by_id {
+    my ($id) = @_;
+    $id = MongoDB::OID->new(value => "$id") unless ref $id eq 'MongoDB::OID';
+    db_find_one {_id => $id};
+}
+
+sub db_remove_by_id {
+    my ($id) = @_;
+    $id = MongoDB::OID->new(value => "$id") unless ref $id eq 'MongoDB::OID';
+    db_remove {_id => $id};
+}
+
 1;
 
 
@@ -406,7 +421,7 @@ MongoX::Helper - Helper to invoke MongoDB commands handy.
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -773,6 +788,18 @@ Shortcut of L<MongoDB::Collection/drop_indexes>.
     db_get_indexes;
 
 Shortcut of L<MongoDB::Collection/get_indexes>.
+
+=head2 db_find_by_id
+
+    my $row = db_find_by_id $oid_or_id_string
+
+Quick find_one by _id.
+
+=head2 db_remove_by_id
+
+    db_remove_by_id $oid_or_id_string
+
+Quick remove by _id.
 
 =head1 SEE ALSO
 

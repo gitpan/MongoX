@@ -3,7 +3,7 @@ package MongoX;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
 use parent qw( Exporter );
 use MongoX::Context;
@@ -77,7 +77,7 @@ MongoX - DSL sugar for MongoDB
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
